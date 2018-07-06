@@ -1,0 +1,16 @@
+@import '../../../assets/index';
+
+#categories {
+    font-family: 'Kanit', sans-serif;
+    height: 70px;
+
+    img {
+        width: 50px;
+        cursor: pointer;
+        transition: .2s;
+
+        &:hover {
+            width: 60px;
+        } 
+    }
+}

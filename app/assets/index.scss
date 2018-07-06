@@ -1,0 +1,96 @@
+@import "./bootstrap/bootstrap";
+@import './color.scss';
+@import './font.scss';
+
+$content-font-size: 14px;
+
+body {
+    background-color: #F5F8FA;
+    overflow-x: hidden;  
+}
+
+a {
+    cursor: pointer;
+}
+
+.container {
+    padding-top: 20px;
+    
+    @include media-breakpoint-up(md) {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 1280px;
+        max-width: 1280px;
+    }
+
+    @include media-breakpoint-down(md) {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+.mobile {
+    display: none;
+
+    @include media-breakpoint-down(xs) {
+        display: block;
+    }
+}
+
+.pc {
+    display: inherit;
+
+    @include media-breakpoint-down(xs) {
+        display: none;
+    }
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.btn[disabled]:hover {
+    cursor: not-allowed;
+}
+
+.alert {
+    color: #111111;
+
+    &.alert-success {
+        background-color: #28A745;
+    }
+
+    &.alert-warning {
+        background-color: #FFC107;
+    }
+
+    &.alert-danger {
+        background-color: #DC3545 ;
+    }
+}
+
+.close {
+    cursor: pointer;
+}
+
+.loading {
+    z-index: 10000;
+    display: inline;
+
+    &.hide {
+        display: none;
+    }
+
+
+    @include media-breakpoint-up(md) {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 15%; 
+    }
+
+    @include media-breakpoint-down(xs) {
+        width: 100%;
+    }
+}

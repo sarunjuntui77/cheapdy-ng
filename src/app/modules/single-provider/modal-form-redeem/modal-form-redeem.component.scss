@@ -1,0 +1,24 @@
+@import '../../../../assets/index';
+
+button {
+    font-family: 'Kanit', sans-serif;
+}
+
+.modal-header {
+    padding-bottom: 15px;
+}
+
+.modal-title {
+    width: 100%;
+
+    .progress {
+        width: 70%;
+        height: 20px;
+    }
+}
+
+.respone {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}

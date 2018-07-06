@@ -1,0 +1,8 @@
+<img class="loading" [ngClass]="{'hide': content && promotion && quotaIp}" src="https://cheapdy.com/contents/wp-content/gallery/icon/loading.gif" />
+<app-single-provider
+*ngIf="content && promotion && quotaIp"
+[content]="content"
+[promotion]="promotion"
+[quotaIp]="quotaIp"
+[relate]="relate"
+></app-single-provider>

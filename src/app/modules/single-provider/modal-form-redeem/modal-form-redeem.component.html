@@ -1,0 +1,97 @@
+<button type="button"
+[disabled]="button.disabled"
+data-toggle="modal" data-target="#redeemModal"
+class="btn btn-raised btn-primary w-100 h-100">{{ button.name }}</button>
+<div class="modal fade" id="redeemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    เหลือคูปอง : {{ promotion.qty }}
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-success progress-bar-animated"
+                        role="progressbar"
+                        aria-valuemin="0" 
+                        [attr.aria-valuenow]="promotion.qty"
+                        [attr.aria-valuemax]="promotion.maxQty"
+                        [style.width]="progressWidth(promotion.qty,promotion.maxQty)"></div>
+                    </div>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="form" (submit)="onSubmit($event)" *ngIf="clientStatus === '' && quotaIp.quotaPromotion === 0">
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input
+                        formControlName="email"
+                        type="email" 
+                        class="form-control form-control-lg"
+                        id="email"
+                        placeholder="Email"
+                        required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">ชื่อ</label>
+                        <input
+                        formControlName="name"
+                        type="text" 
+                        class="form-control form-control-lg" 
+                        id="name"
+                        placeholder="ชื่อ - สกุล"
+                        required>
+                    </div>
+                    <div class="form-group">
+                        <label class="custom-control custom-radio">
+                            <input
+                            value="M"
+                            formControlName="sex"
+                            name="sex" 
+                            type="radio" 
+                            class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">ชาย</span>
+                        </label>
+                        <label class="custom-control custom-radio">
+                            <input
+                            value="F"
+                            formControlName="sex"
+                            name="sex" 
+                            type="radio" 
+                            class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">หญิง</span>
+                        </label>
+                    </div>
+                    <button
+                    type="submit"
+                    class="btn btn-raised btn-success w-100"
+                    [disabled]="uiEvent.formSubmit">รับคูปอง</button>
+                </form>
+
+                <div class="card text-white bg-success sm-12" *ngIf="quotaIp.quotaPromotion > 0 || clientStatus === 'GETED'">
+                    <div class="card-body">
+                        <h4 class="card-title">คุณได้รับคูปองนี้แล้ว</h4>
+                        <p class="card-text">โปรดตรวจสอบEmailของคุณ</p>
+                    </div>
+                </div>
+
+                <div *ngIf="clientStatus === 'MAX'" class="card text-white bg-warning sm-12">
+                    <div class="card-body">
+                        <h4 class="card-title">คุณหมดสิทธิ์ในการรับคูปอง</h4>
+                        <p class="card-text">คุณหมดสิทธิ์สำหรับการรับคูปองในวันนี้แล้ว</p>
+                    </div>
+                </div>
+
+                <div *ngIf="clientStatus === 'ERROR'" class="card text-white bg-danger sm-12">
+                    <div class="card-body">
+                        <h4 class="card-title">ระบบขัดข้อง</h4>
+                        <p class="card-text">โปรดติดต่อ.....</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

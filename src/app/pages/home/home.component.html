@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-sm-12 text-center" id="categories">
+        <img src="https://cheapdy.com/contents/wp-content/gallery/icon/clearcache.png" (click)="sync()" title="ซิงค์ข้อมูล">
+        <img src="https://cheapdy.com/contents/wp-content/gallery/icon/food.png" (click)="filterCategory('ร้านอาหาร')" title="ร้านอาหาร">
+        <img src="https://cheapdy.com/contents/wp-content/gallery/icon/coffee.png" (click)="filterCategory('ร้ากาแฟ')" title="ร้ากาแฟ">
+        <img src="https://cheapdy.com/contents/wp-content/gallery/icon/bed.png" (click)="filterCategory('ที่พัก')" title="ที่พัก">
+        <img src="https://cheapdy.com/contents/wp-content/gallery/icon/service.png" (click)="filterCategory('บริการ')" title="บริการ">
+    </div>
+</div>
+<img class="loading" [ngClass]="{'hide': ready}" src="https://cheapdy.com/contents/wp-content/gallery/icon/loading.gif" />
+<app-list-provider-equal
+*ngIf="ready"
+[categories]="categories"
+[promotions]="promotionList"
+></app-list-provider-equal>

@@ -1,0 +1,157 @@
+@import '../../../assets/index';
+
+.breadcrumb {
+    margin: 0;
+    font-family: 'Kanit', sans-serif;
+    box-shadow: $default-shadow;
+}
+
+.breadcrumb-item {
+
+    @include media-breakpoint-down(xs) {
+        width: 100%;
+    }
+}
+
+.provider-info {
+    margin-top: 30px;
+    height: 400px;
+    background-color: #FFFFFF;
+    box-shadow: $default-shadow;
+
+    agm-map {
+        height: calc(400px - 39px);
+
+        @include media-breakpoint-down(xs) {
+            height: calc(45vh - 39px);
+        }
+    }
+
+    .info-desc {
+        height: calc(400px - 42px);
+        font-size: $content-font-size;
+        overflow-y: auto;
+        padding: 12px;
+        border-top: 0;
+
+        @include media-breakpoint-down(xs) {
+            height: calc(45vh - 42px);
+        }
+    }
+
+    @include media-breakpoint-down(xs) {
+        height: 45vh;
+    }
+}
+
+.promotion-desc {
+    border: 1px solid #DDDDDD;
+    margin-top: 30px;
+    height: 200px;
+    padding: 12px;
+    background-color: #FFFFFF;
+    font-size: $content-font-size;
+    box-shadow: $default-shadow;
+
+    @include media-breakpoint-down(xs) {
+        height: auto;
+    }
+}
+
+.photo-show {
+    margin-top: 30px;
+    width: 100%;
+    height: 400px;
+    position: relative;
+
+    .carousel {
+        height: 100%;
+        .carousel-inner, .carousel-item {
+            height: 100%;
+        }
+        img {
+            height: 100%; 
+        }
+    }
+
+    @include media-breakpoint-down(xs) {
+        height: 29vh;
+    }
+}
+
+#relate-box {
+    
+    @include media-breakpoint-down(xs) {
+        margin-bottom: 20px;
+    }
+}
+
+.relate {
+    margin-top: 30px;
+    width: 100%;
+    height: 200px;
+    box-shadow: $default-shadow;
+    font-family: 'Kanit', sans-serif;
+    
+    .item {
+        width: 50%;
+        height: 100%;
+        float: left;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+
+        p {
+            margin: 0;
+            position: absolute;
+            text-align: right;
+            bottom: 0;
+            padding-top: 15px;
+            padding-right: 5px;
+            padding-bottom: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        @include media-breakpoint-down(xs) {
+            width: 100%;
+            height: 29vh;
+        }
+    }
+
+    @include media-breakpoint-down(xs) {
+        height: unset;
+    }
+}
+
+app-redeem-coupon {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform:translateX(-50%) translateY(-50%);
+    z-index: 2;
+}
+
+.nav-item {
+    width: 50%;
+    text-align: center;
+}
+
+a {
+    cursor: pointer;
+}
+
+#redeem {
+
+    @include media-breakpoint-down(xs) {
+        margin-top: 30px;
+    }
+}
